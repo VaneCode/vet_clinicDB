@@ -39,4 +39,12 @@ COMMIT;
 --Verify transaction's 2 changes persist
 SELECT name, species FROM animals;
 
+--Transaction 3: delete animal's records
+BEGIN;
+--Delete all records
+DELETE FROM animals;
+ROLLBACK;
+--Verify if all records in the animals table still exists
+SELECT COUNT(*) FROM animals;
+
 
