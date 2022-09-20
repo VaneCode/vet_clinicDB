@@ -28,5 +28,15 @@ ROLLBACK;
 --Verify transaction's 1 rollback
 SELECT species FROM animals;
 
+--Transaction 2: update species column by name
+BEGIN;
+--Set digimon in species where animals' name ends in mon
+UPDATE animals SET species = 'digimon' WHERE name LIKE '%mon';
+--Set pokemon in species where a vaule isn't set for this column
+UPDATE animals SET species = 'pokemon' WHERE species IS null;
+--Commit the transaction 2
+COMMIT;
+--Verify transaction's 2 changes persist
+SELECT name, species FROM animals;
 
 
