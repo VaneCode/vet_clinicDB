@@ -64,7 +64,7 @@ COMMIT;
 --Verify animals table data after transaction
 SELECT name, weight_kg FROM animals;
 
---COMPLET QUERIES FOR ANALYTICAL QUESTIONS FROM ANIMALS TABLE
+--COMPLEX QUERIES FOR ANALYTICAL QUESTIONS FROM ANIMALS TABLE
 --How many animals are there?
 SELECT COUNT(*) FROM animals;
 
@@ -73,6 +73,11 @@ SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
 
 --What is the average weight of animals?
 SELECT ROUND(AVG(weight_kg),2) AS avg_weight FROM animals;
+
+--Who escapes the most, neutered or not neutered animals?
+SELECT neutered, SUM(escape_attempts) FROM animals GROUP BY neutered
+HAVING SUM(escape_attempts) >= ALL
+(SELECT SUM(escape_attempts) FROM animals GROUP BY neutered);
 
 
 
