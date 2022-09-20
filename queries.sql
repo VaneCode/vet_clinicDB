@@ -18,3 +18,15 @@ SELECT * FROM animals WHERE neutered = 'true';
 SELECT * FROM animals WHERE name != 'Gabumon';
 --Find all animals with a weight between 10.4kg and 17.3kg
 SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
+
+--UPDATES, DELETES AND TRANSACTIONS
+--Transaction 1: setting the species column to unspecified
+BEGIN;
+UPDATE animals SET species = 'unspecified';
+SELECT species from animals;
+ROLLBACK;
+--Verify transaction's 1 rollback
+SELECT species FROM animals;
+
+
+
