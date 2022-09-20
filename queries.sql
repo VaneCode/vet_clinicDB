@@ -71,5 +71,8 @@ SELECT COUNT(*) FROM animals;
 --How many animals have never tried to escape?
 SELECT COUNT(*) FROM animals WHERE escape_attempts = 0;
 
+--What is the average weight of animals?
+SELECT ROUND(AVG(weight_kg),2) AS avg_weight FROM animals;
+
 
 
