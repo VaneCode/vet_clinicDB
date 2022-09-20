@@ -79,5 +79,8 @@ SELECT neutered, SUM(escape_attempts) FROM animals GROUP BY neutered
 HAVING SUM(escape_attempts) >= ALL
 (SELECT SUM(escape_attempts) FROM animals GROUP BY neutered);
 
+--What is the minimum and maximum weight of each type of animal?
+SELECT species, MIN(weight_kg) as minWeight, MAX(weight_kg) FROM animals GROUP BY species;
+
 
 
