@@ -1,6 +1,6 @@
 /*Queries that provide answers to the questions from all projects.*/
 
---QUERIES FROM TABLE ANIMALS
+--BASIC QUERIES FROM TABLE ANIMALS
 
 --All animals whose name ends in "mon".
 SELECT * FROM animals WHERE name LIKE '%mon';
@@ -63,5 +63,10 @@ UPDATE animals SET weight_kg = weight_kg * -1 WHERE weight_kg < 0;
 COMMIT;
 --Verify animals table data after transaction
 SELECT name, weight_kg FROM animals;
+
+--COMPLET QUERIES FOR ANALYTICAL QUESTIONS FROM ANIMALS TABLE
+--How many animals are there?
+SELECT COUNT(*) FROM animals;
+
 
 
