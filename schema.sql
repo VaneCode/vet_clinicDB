@@ -63,3 +63,16 @@ ALTER TABLE specializations ADD PRIMARY KEY(vet_id, species_id);
 --Add foreign keys to specializations
 ALTER TABLE specializations ADD CONSTRAINT vets_fk FOREIGN KEY(vet_id) REFERENCES vets(id);
 ALTER TABLE specializations ADD CONSTRAINT species_fk FOREIGN KEY(species_id) REFERENCES species(id);
+
+--Create table visits
+DROP TABLE IF EXISTS visits;
+
+CREATE TABLE visits(
+ animal_id INT,
+ vet_id INT,
+ date_of_visit DATE
+);
+
+--Add foreign keys to visits
+ALTER TABLE visits ADD CONSTRAINT animals_fk FOREIGN KEY(animal_id) REFERENCES animals(id);
+ALTER TABLE visits ADD CONSTRAINT vets_fk FOREIGN KEY(vet_id) REFERENCES vets(id);
