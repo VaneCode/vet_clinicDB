@@ -88,9 +88,15 @@ WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
 
 --QUERY MULTIPLE TABLES WITH JOIN
-----What animals belong to Melody Pond?
+--What animals belong to Melody Pond?
 SELECT A.name FROM
 animals A JOIN owners O ON
-a.owner_id = o.id
+A.owner_id = O.id
 WHERE O.full_name = 'Melody Pond';
+
+--List of all animals that are pokemon (their type is Pokemon).
+SELECT A.name FROM
+animals A JOIN species S ON
+A.species_id = S.id
+WHERE S.name = 'Pokemon';
 
