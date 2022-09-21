@@ -245,3 +245,11 @@ HAVING COUNT(A.name) >= ALL
 (SELECT COUNT(A.name) FROM
 owners O JOIN animals A ON O.id = A.owner_id
 GROUP BY O.id); 
+
+--COMPLEX QUERIES USING JOIN/BRIDGE TABLES
+--Who was the last animal seen by William Tatcher?
+SELECT A.name, V.date_of_visit FROM
+animals A JOIN visits V ON A.id = V.animal_id
+JOIN vets ON V.vet_id = vets.id
+WHERE vets.name = 'William Tatcher'
+ORDER BY V.date_of_visit DESC LIMIT 1;
