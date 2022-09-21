@@ -29,3 +29,7 @@ CREATE TABLE species(
 	name VARCHAR(100),
 	PRIMARY KEY(id)
 );
+
+--Update table animals structure
+--Remove column species
+ALTER TABLE animals DROP COLUMN species;
