@@ -16,6 +16,14 @@ INSERT INTO animals (name, date_of_birth, escape_attempts,neutered, weight_kg) V
 ('Boarmon','2005-06-07',7,true,20.4),
 ('Blossom','1998-10-13',3,true,17),
 ('Ditto','2022-05-14',4,true,22);
+--Modify your inserted animals so it includes the species_id value
+BEGIN;
+--If the name ends in "mon" it will be Digimon
+UPDATE animals SET species_id = 2 WHERE name LIKE '%mon';
+--All other animals are Pokemon
+UPDATE animals SET species_id = 1 WHERE species_id IS null;
+--Commit the changes
+COMMIT;
 
 --TABLE OWNERS
 --Popullate table owners
