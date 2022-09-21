@@ -87,4 +87,10 @@ SELECT species, ROUND(AVG(escape_attempts),2) FROM animals
 WHERE date_of_birth BETWEEN '1990-01-01' AND '2000-12-31'
 GROUP BY species;
 
+--QUERY MULTIPLE TABLES WITH JOIN
+----What animals belong to Melody Pond?
+SELECT A.name FROM
+animals A JOIN owners O ON
+a.owner_id = o.id
+WHERE O.full_name = 'Melody Pond';
 
