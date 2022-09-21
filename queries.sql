@@ -227,8 +227,12 @@ GROUP BY S.id
 ORDER BY numAnimals DESC; 
 
 --List all Digimon owned by Jennifer Orwell.
-SELECT S.name, O.full_name, A.name FROM
+SELECT S.name as type, O.full_name as owner, A.name as animal FROM
 owners O JOIN animals A ON O.id = A.owner_id
 JOIN species S ON S.id = A.species_id
 WHERE (O.full_name = 'Jennifer Orwell' AND S.name = 'Digimon'); 
 
+--List all animals owned by Dean Winchester that haven't tried to escape.
+SELECT A.name, A.escape_attempts FROM
+owners O JOIN animals A ON O.id = A.owner_id
+WHERE (O.full_name = 'Dean Winchester' AND A.escape_attempts = 0); 
