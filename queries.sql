@@ -262,3 +262,7 @@ JOIN species S ON S.id = A.species_id
 WHERE vets.name = 'Stephanie Mendez'
 GROUP BY S.name;
 
+--List all vets and their specialities, including vets with no specialties.
+SELECT V.name, Sps.name FROM
+vets V LEFT JOIN specializations Spt ON V.id = Spt.vet_id
+LEFT JOIN species Sps ON Sps.id = Spt.species_id;
