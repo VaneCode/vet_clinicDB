@@ -289,9 +289,7 @@ WHERE vets.name = 'Maisy Smith'
 ORDER BY V.date_of_visit ASC LIMIT 1;
 
 --Details for most recent visit: animal information, vet information, and date of visit.
-SELECT A.name, A.date_of_birth, A.escape_attempts, A.weight_kg, A.neutered,
-       vets.name, vets.age, vets.date_of_graduation,
-       V.date_of_visit 
+SELECT A.*, vets.*, V.date_of_visit 
 FROM
 animals A JOIN visits V ON A.id = V.animal_id
 JOIN vets ON V.vet_id = vets.id
@@ -307,8 +305,8 @@ JOIN species Spc ON Spc.id = Spt.species_id
 WHERE Spt.species_id IS NULL OR A.species_id != Spt.species_id
 GROUP BY Spc.name;
 
---What speciality should Maisy Smith consider getting? Look for the species she gets the most.
-SELECT S.name as speciality, COUNT(*) as numVisits
+--What specialty should Maisy Smith consider getting? Look for the species she gets the most.
+SELECT S.name as specialty, COUNT(*) as numVisits
 FROM
 vets JOIN visits V ON vets.id = V.vet_id
 JOIN animals A on A.id = V.animal_id
