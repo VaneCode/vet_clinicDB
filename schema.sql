@@ -79,3 +79,6 @@ ALTER TABLE visits ADD CONSTRAINT vets_fk FOREIGN KEY(vet_id) REFERENCES vets(id
 
 -- Add an email column to your owners table
 ALTER TABLE owners ADD COLUMN email VARCHAR(120);
+
+--Add animal_id index to visits
+CREATE INDEX animals_id_asc ON visits(animal_id ASC);
